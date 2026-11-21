@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  str_op:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - run:
+          name: show string
+          command: |
+            s="hello world"
+            echo "len=${#s}"
+            echo "upper=$(echo $s | tr a-z A-Z)"
+workflows:
+  main:
+    jobs:
+      - str_op
